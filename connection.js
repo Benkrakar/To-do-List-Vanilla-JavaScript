@@ -1,4 +1,4 @@
-import mysql from "mysql";
+const mysql = require("mysql");
 
 let connection = mysql.createConnection({
   host: "localhost",
@@ -11,4 +11,6 @@ connection.connect((err) => {
     throw err;
   }
 });
-export default connection;
+module.exports = {
+  connection,
+};
