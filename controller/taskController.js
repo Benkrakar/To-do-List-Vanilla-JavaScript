@@ -9,6 +9,16 @@ async function getTasks(req, res) {
     throw err;
   }
 }
+async function getTask(req, res,id) {
+  try {
+    const task = await Task.getById(id);
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify(task));
+  } catch (err) {
+    throw err;
+  }
+}
 module.exports = {
   getTasks,
+  getTask,
 };

@@ -11,6 +11,18 @@ function getAll() {
     });
   });
 }
+function getById(id) {
+  return new Promise((resolve, reject) => {
+    const sql = `SELECT * FROM todo WHERE  id = ${id}`;
+    connection.query(sql, function (err, tasks) {
+      if (err) {
+        throw err;
+      }
+      resolve(tasks);
+    });
+  });
+}
 module.exports = {
   getAll,
+  getById,
 };
