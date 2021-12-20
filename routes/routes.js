@@ -1,7 +1,7 @@
 const http = require('http');
 const { getTasks } = require('../controller/taskController.js');
-import dotenv from 'dotenv';
-dotenv.config();
+import 'dotenv/config';
+
 
 const server = http.createServer((req, res) => {
   switch (req.url) {
@@ -10,7 +10,7 @@ const server = http.createServer((req, res) => {
       break;
     default:
       res.writeHead(404, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify({ message: 'route not found ...' }));
+      res.end(JSON.stringify({ 404: 'route not found :(' }));
       break;
   }
 });
