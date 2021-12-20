@@ -9,7 +9,6 @@ async function getTasks(req, res) {
     throw err;
   }
 }
-
 module.exports = {
   getTasks,
 };
