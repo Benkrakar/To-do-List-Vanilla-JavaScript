@@ -1,5 +1,5 @@
 const http = require("http");
-const {getTasks} = require("./controller/taskController.js");
+const {getTasks} = require("../controller/taskController.js");
 
 
 const server = http.createServer((req, res) => {
