@@ -1,4 +1,5 @@
 const Task = require('../model/taskModel.js');
+const { getTaskData } = require('../utiles.js');
 
 async function getTasks(req, res) {
   try {
@@ -9,7 +10,7 @@ async function getTasks(req, res) {
     throw err;
   }
 }
-async function getTask(req, res,id) {
+async function getTask(req, res, id) {
   try {
     const task = await Task.getById(id);
     res.writeHead(200, { 'Content-Type': 'application/json' });
@@ -18,7 +19,24 @@ async function getTask(req, res,id) {
     throw err;
   }
 }
+
+async function createTask(req, res) {
+  try {
+    const body = await getTaskData(req);
+    const { title, state } = JSON.parse(body);
+    const data = {
+      title,
+      state,
+    };
+    const newtask = await Task.createTask(data);
+    res.writeHead(201, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify(newtask));
+  } catch (error) {
+    console.log(error);
+  }
+}
 module.exports = {
+  createTask,
   getTasks,
   getTask,
 };
