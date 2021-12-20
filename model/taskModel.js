@@ -1,4 +1,4 @@
-const { connection } = require('../connection.js');
+const { connection } = require('../database/connection.js');
 
 function getAll() {
   return new Promise((resolve, reject) => {
