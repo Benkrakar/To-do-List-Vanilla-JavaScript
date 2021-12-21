@@ -1,5 +1,5 @@
 const Task = require('../model/taskModel.js');
-const { getTaskData } = require('../utiles.js');
+const { getTaskData } = require('../helpers/helpers.js');
 
 async function getTasks(req, res) {
   try {
